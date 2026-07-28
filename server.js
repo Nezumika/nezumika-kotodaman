@@ -5,6 +5,14 @@ const mysql = require("mysql2/promise");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// const db = mysql.createPool({
+//   host: "tokaido.proxy.rlwy.net",
+//   user: "root",
+//   password: "ImXWyrFvLcjxQpBDlGebcnlJLAbcdiWp",
+//   database: "railway",
+//   port: 51175
+// });
+
 const db = mysql.createPool({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
