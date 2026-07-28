@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>お問い合わせ</title>
+</head>
+
+<body>
+
+  <h1>お問い合わせ</h1>
+
+  <!-- 現在のバージョン表示 -->
+  <p>
+    現在のバージョン：
+    <span id="version">取得中...</span>
+  </p>
+
+
+  <!-- 問い合わせフォーム -->
+  <form action="/inquiry" method="POST">
+
+    <label>
+      名前：
+      <input type="text" name="name" required>
+    </label>
+
+    <br><br>
+
+    <label>
+      コメント：
+      <textarea name="comment" required></textarea>
+    </label>
+
+    <br><br>
+
+    <button type="submit">
+      送信
+    </button>
+
+  </form>
+
+
+  <script>
+    // 最新バージョン取得
+    fetch("/version")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("version").textContent = data.version;
+      })
+      .catch(error => {
+        console.error("バージョン取得失敗:", error);
+        document.getElementById("version").textContent = "取得失敗";
+      });
+  </script>
+
+
+</body>
+
+</html>
