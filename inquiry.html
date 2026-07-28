@@ -16,9 +16,8 @@
     <span id="version">取得中...</span>
   </p>
 
-
   <!-- 問い合わせフォーム -->
-  <form action="/inquiry" method="POST">
+  <form action="https://nezumika-kotodaman.onrender.com/inquiry" method="POST">
 
     <label>
       名前：
@@ -40,10 +39,9 @@
 
   </form>
 
-
   <script>
     // 最新バージョン取得
-    fetch("/version")
+    fetch("https://nezumika-kotodaman.onrender.com/version")
       .then(response => response.json())
       .then(data => {
         document.getElementById("version").textContent = data.version;
@@ -53,7 +51,6 @@
         document.getElementById("version").textContent = "取得失敗";
       });
   </script>
-
 
 </body>
 
