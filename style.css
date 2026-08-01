@@ -1,0 +1,78 @@
+/* 1. 全体：温かみのある生成り（アイボリー）ベース */
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a3b32; /* 深い木肌のようなダークブラウン */
+    background-color: #f7f4ee; /* 優しく温かみのある生成り色 */
+    margin: 0;
+    padding: 24px;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3d2e24;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.03em;
+    border-bottom: 2px solid #d4c5b3; /* 木の枝のような優しい区切り線 */
+    padding-bottom: 8px;
+}
+
+/* 2. ボタン：木のプレートをイメージした温かいデザイン */
+.button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    color: #ffffff;
+    background-color: #7c5c43; /* メインのウッドブラウン */
+    text-decoration: none;
+    border: none;
+    border-radius: 6px; /* 角をほんのり丸く */
+    box-shadow: 0 2px 4px rgba(74, 59, 50, 0.15); /* 木の厚みを感じる影 */
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    background-color: #634731; /* 濃い目の木の色へ */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(74, 59, 50, 0.2);
+}
+
+.button-link:active {
+    transform: translateY(0);
+}
+
+/* 3. リスト・グリッド：木製カードのような背景 */
+.word-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 24px;
+}
+
+.word-grid {
+    display: grid;
+    grid-template-rows: repeat(13, auto);
+    grid-auto-flow: column;
+    gap: 8px 24px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e6ded5; /* 淡い木肌色 */
+    box-shadow: 0 2px 8px rgba(124, 92, 67, 0.05); /* ほのかな影 */
+}
+
+@media (max-width: 768px) {
+    .word-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .word-grid {
+        grid-template-rows: repeat(20, auto);
+        overflow-x: auto;
+    }
+}
