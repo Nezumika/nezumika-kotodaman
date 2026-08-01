@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// 👈 ここにこの1行を追加してくださいっ！
+// 静的ファイルの提供
 app.use(express.static(__dirname));
 
 // ルーティング設定
@@ -123,6 +123,50 @@ app.post('/api/admin/inquiries/:id/hide', async (req, res) => {
         res.status(500).json({ error: 'サーバーエラーが発生しました' });
     }
 });
+
+// --------------------------------------------------
+// 🚀【新規追加】🔒 DBバージョン一覧を取得する管理者用API
+// --------------------------------------------------
+app.get('/api/admin/versions', async (req, res) => {
+    const adminPassword = req.headers['x-admin-password'];
+    if (adminPassword !== 'UtoKun1313') { // 設定したパスワード
+        return res.status(401).json({ error: 'パスワードが違います！' });
+    }
+
+    try {
+        // versionsテーブルからID降順（新しい順）で全件取得
+        const [rows] = await db.query('SELECT id, version, DATE_FORMAT(release_date, "%Y-%m-%d") AS release_date FROM versions ORDER BY id DESC');
+        res.json(rows);
+    } catch (error) {
+        console.error('バージョン一覧取得エラー:', error);
+        res.status(500).json({ error: 'サーバーエラーが発生しました' });
+    }
+});
+
+// --------------------------------------------------
+// 🚀【新規追加】🔒 新しいバージョンを登録・更新するAPI
+// --------------------------------------------------
+app.post('/api/admin/versions', async (req, res) => {
+    const adminPassword = req.headers['x-admin-password'];
+    if (adminPassword !== 'UtoKun1313') { // 設定したパスワード
+        return res.status(401).json({ error: 'パスワードが違います！' });
+    }
+
+    const { version, release_date } = req.body;
+    if (!version || !release_date) {
+        return res.status(400).json({ error: 'バージョンとリリース日は必須です！' });
+    }
+
+    try {
+        // versionsテーブルに新しいレコードを追加
+        await db.query('INSERT INTO versions (version, release_date) VALUES (?, ?)', [version, release_date]);
+        res.json({ message: '新しいバージョンを登録しました！' });
+    } catch (error) {
+        console.error('バージョン登録エラー:', error);
+        res.status(500).json({ error: 'サーバーエラーが発生しました' });
+    }
+});
+
 
 // サーバー起動
 app.listen(PORT, () => {
