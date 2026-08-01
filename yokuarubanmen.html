@@ -8,18 +8,102 @@
     <title>よくある盤面</title>
 
     <style>
-    body {
-        font-size: 20px;
-    }
+        /* 1. 全体：生成り色と木肌のダークブラウン */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a3b32; /* 木肌のようなダークブラウン */
+            background-color: #f7f4ee; /* 温かい生成り色 */
+            margin: 0;
+            padding: 24px;
+            max-width: 800px; /* 中央寄せて読みやすく */
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    h1 {
-        font-size: 36px;
-    }
+        /* 2. タイトル */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3d2e24;
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+            border-bottom: 2px solid #d4c5b3; /* 木の枝風の区切り線 */
+            padding-bottom: 12px;
+        }
 
-    button {
-        font-size: 20px;
-        padding: 15px;
-    }
+        /* 3. 説明テキスト */
+        .intro-text {
+            background-color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid #e6ded5;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 6px rgba(124, 92, 67, 0.04);
+        }
+
+        /* 4. 盤面ボタンのグリッド配置 */
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .board-grid a {
+            text-decoration: none;
+        }
+
+        /* 5. 木製プレート風の盤面ボタン */
+        .board-grid button {
+            width: 100%;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 14px 16px;
+            color: #ffffff;
+            background-color: #7c5c43; /* メインウッドブラウン */
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(74, 59, 50, 0.15);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .board-grid button:hover {
+            background-color: #634731;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(74, 59, 50, 0.2);
+        }
+
+        .board-grid button:active {
+            transform: translateY(0);
+        }
+
+        /* 6. トップへ戻るボタンエリア */
+        .back-area {
+            border-top: 1px dashed #d4c5b3;
+            padding-top: 24px;
+        }
+
+        .btn-back {
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            color: #4a3b32;
+            background-color: #e6ded5; /* 少し落ち着いたベージュ */
+            border: 1px solid #c8bcad;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #d8cdbe;
+            transform: translateY(-1px);
+        }
     </style>
 
 </head>
@@ -29,47 +113,38 @@
 
     <h1>よくありがちな盤面まとめました</h1>
 
-    <p>
-        ありがちな盤面はすぐに７文字検索を<br>
-    </p>
-    
+    <div class="intro-text">
+        <p>ありがちな盤面はすぐに7文字検索を！</p>
+    </div>
 
-    </a>
+    <!-- 盤面選択ボタンのグループ -->
+    <div class="board-grid">
         <a href="mmkyoumm.html">
-        <button>〇〇きょう〇〇</button>
-    </a>
-    </a>
+            <button>〇〇きょう〇〇</button>
+        </a>
+        <a href="mmsyoumm.html">
+            <button>〇〇しょう〇〇</button>
+        </a>
         <a href="mikansei.html">
-        <button>〇〇しょう〇〇</button>
-    </a>
-    </a>
-        <a href="mikansei.html">
-        <button>〇〇ちょう〇〇</button>
-    </a>
-
-<br>
-
-</a>
+            <button>〇〇ちょう〇〇</button>
+        </a>
         <a href="mmkyuumm.html">
-        <button>〇〇きゅう〇〇</button>
-    </a>
-    </a>
+            <button>〇〇きゅう〇〇</button>
+        </a>
         <a href="mikansei.html">
-        <button>〇〇しゅう〇〇</button>
-    </a>
-    </a>
+            <button>〇〇しゅう〇〇</button>
+        </a>
         <a href="mikansei.html">
-        <button>〇〇ちゅう〇〇</button>
-    </a>
+            <button>〇〇ちゅう〇〇</button>
+        </a>
+    </div>
 
-
-
-    <br>
-     <br>
-     </a>
+    <!-- トップへ戻る -->
+    <div class="back-area">
         <a href="index.html">
-        <button>トップへ戻る</button>
-    </a>
+            <button type="button" class="btn-back">← トップへ戻る</button>
+        </a>
+    </div>
 
 </body>
 

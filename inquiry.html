@@ -2,55 +2,223 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <title>お問い合わせ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ</title>
+
+    <style>
+        /* 1. 全体：生成り色と木肌のダークブラウン */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a3b32; /* 木肌のようなダークブラウン */
+            background-color: #f7f4ee; /* 温かい生成り色 */
+            margin: 0;
+            padding: 24px;
+            max-width: 800px; /* 中央に寄せて読みやすく */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 2. タイトル */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3d2e24;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+            border-bottom: 2px solid #d4c5b3; /* 木の枝風の区切り線 */
+            padding-bottom: 12px;
+        }
+
+        /* 3. 問い合わせフォーム枠 */
+        .form-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e6ded5;
+            padding: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(124, 92, 67, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #3d2e24;
+        }
+
+        /* 入力欄（input, textarea）のウッド調デザイン */
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 1rem;
+            padding: 10px 14px;
+            color: #4a3b32;
+            background-color: #faf8f5;
+            border: 1px solid #d4c5b3;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group textarea:focus {
+            background-color: #ffffff;
+            border-color: #7c5c43;
+            box-shadow: 0 0 0 3px rgba(124, 92, 67, 0.15);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* 送信ボタン */
+        .btn-submit {
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 28px;
+            color: #ffffff;
+            background-color: #7c5c43; /* メインウッドブラウン */
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(74, 59, 50, 0.15);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #634731;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(74, 59, 50, 0.2);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit:disabled {
+            background-color: #b0a397;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* 送信完了メッセージ */
+        .success-message {
+            display: none;
+            margin-top: 16px;
+            padding: 12px;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* 4. トップへ戻るボタンエリア */
+        .back-area {
+            border-top: 1px dashed #d4c5b3;
+            padding-top: 24px;
+        }
+
+        .btn-back {
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            color: #4a3b32;
+            background-color: #e6ded5; /* 落ち着いたベージュ */
+            border: 1px solid #c8bcad;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #d8cdbe;
+            transform: translateY(-1px);
+        }
+    </style>
 </head>
 
 <body>
 
-  <h1>お問い合わせ</h1>
+    <h1>お問い合わせ</h1>
 
-  <!-- 現在のバージョン表示 -->
-  <p>
-    現在のバージョン：
-    <span id="version">取得中...</span>
-  </p>
+    <!-- 隠しiframe（見えない送信先ターゲット） -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
-  <!-- 問い合わせフォーム -->
-  <form action="https://nezumika-kotodaman.onrender.com/inquiry" method="POST">
+    <!-- 問い合わせフォーム -->
+    <div class="form-card">
+        <!-- target="hidden_iframe" を追加して裏側で送信させます -->
+        <form id="inquiryForm" action="https://nezumika-kotodaman.onrender.com/inquiry" method="POST" target="hidden_iframe">
 
-    <label>
-      名前：
-      <input type="text" name="name" required>
-    </label>
+            <div class="form-group">
+                <label for="name">名前</label>
+                <input type="text" id="name" name="name" value="匿名" required placeholder="お名前を入力してください">
+            </div>
 
-    <br><br>
+            <div class="form-group">
+                <label for="comment">コメント</label>
+                <!-- name属性を「comment」に設定しています -->
+                <textarea id="comment" name="comment" required placeholder="バグ報告、誤字指摘、ご意見などをお書きください"></textarea>
+            </div>
 
-    <label>
-      コメント：
-      <textarea name="comment" required></textarea>
-    </label>
+            <button type="submit" id="submitBtn" class="btn-submit">送信する</button>
 
-    <br><br>
+            <!-- 画面移動せずに「完了」を表示するメッセージ枠 -->
+            <div id="successMessage" class="success-message">
+                ✅ お問い合わせを送信しました！ありがとうございます！
+            </div>
 
-    <button type="submit">
-      送信
-    </button>
+        </form>
+    </div>
 
-  </form>
+    <!-- トップへ戻る -->
+    <div class="back-area">
+        <a href="index.html">
+            <button type="button" class="btn-back">← トップへ戻る</button>
+        </a>
+    </div>
 
-  <script>
-    // 最新バージョン取得
-    fetch("https://nezumika-kotodaman.onrender.com/version")
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("version").textContent = data.version;
-      })
-      .catch(error => {
-        console.error("バージョン取得失敗:", error);
-        document.getElementById("version").textContent = "取得失敗";
-      });
-  </script>
+    <script>
+        const form = document.getElementById('inquiryForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const iframe = document.getElementById('hidden_iframe');
+        let isSubmitting = false;
+
+        form.addEventListener('submit', function() {
+            // 送信ボタンを押した瞬間
+            isSubmitting = true;
+            submitBtn.disabled = true;
+            submitBtn.textContent = '送信中...';
+        });
+
+        // 隠しiframeの読み込みが終わった＝Renderへ送信が完了したとき
+        iframe.addEventListener('load', function() {
+            if (isSubmitting) {
+                // フォームをリセットして名前を「匿名」に戻す
+                form.reset();
+                document.getElementById('name').value = '匿名';
+
+                // 成功メッセージ表示
+                successMessage.style.display = 'block';
+                submitBtn.textContent = '送信完了';
+                isSubmitting = false;
+            }
+        });
+    </script>
 
 </body>
 

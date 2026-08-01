@@ -8,17 +8,92 @@
     <title>ねずみかの攻略サイト</title>
 
     <style>
+        /* 1. 全体：生成り色と木肌のダークブラウン */
         body {
-            font-size: 20px;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a3b32; /* 木肌のようなダークブラウン */
+            background-color: #f7f4ee; /* 温かい生成り色 */
+            margin: 0;
+            padding: 24px;
+            max-width: 800px; /* 読みやすい幅に制限 */
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        /* 2. タイトル：木の看板風 */
         h1 {
-            font-size: 36px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3d2e24;
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+            border-bottom: 2px solid #d4c5b3; /* 枝のような優しい仕切り線 */
+            padding-bottom: 12px;
         }
 
+        /* 3. 説明文のエリア */
+        .intro-text {
+            background-color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid #e6ded5;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 6px rgba(124, 92, 67, 0.04);
+        }
+
+        /* 4. ボタンの並び（ナビゲーション） */
+        .nav-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .nav-group a {
+            text-decoration: none;
+        }
+
+        /* 5. 木製プレート風のボタン */
         button {
-            font-size: 20px;
-            padding: 15px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            color: #ffffff;
+            background-color: #7c5c43; /* ウッドブラウン */
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(74, 59, 50, 0.15);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #634731;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(74, 59, 50, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* 6. お問い合わせリンク */
+        .contact-link {
+            display: inline-block;
+            color: #8c6b52;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            background-color: #eae3d9;
+            text-decoration: underline;
         }
     </style>
 
@@ -29,29 +104,32 @@
 
     <h1>ねずみかの攻略サイト</h1>
 
-    <p>
-        少なくともメモ帳よりは見やすい　をまずはモットーに　日々更新中<br>
-        <br>
-        バグ、誤字、ご意見等ありましたら問い合わせお願いします。
-    </p>
+    <div class="intro-text">
+        <p>
+            「少なくともメモ帳よりは見やすい」をまずはモットーに日々更新中！<br>
+            バグ、誤字、ご意見等ありましたら下記よりお問い合わせをお願いします。
+        </p>
+    </div>
 
+    <!-- ボタンをきれいに並べるグループ -->
+    <div class="nav-group">
+        <a href="kame1t.html">
+            <button>仮面ライダー大討伐攻略へ</button>
+        </a>
+        <a href="kourin.html">
+            <button>降臨攻略</button>
+        </a>
+        <a href="yokuarubanmen.html">
+            <button>よくある盤面（製作中）</button>
+        </a>
+    </div>
 
-    <a href="kame1t.html">
-        <button>仮面ライダー大討伐攻略へ</button>
+    <!-- RenderのURLではなく、作成したHTMLファイル名を指定します -->
+<div>
+    <a href="inquiry.html" class="contact-link">
+        ✉️ お問い合わせはこちら
     </a>
-    <a href="kourin.html">
-        <button>降臨攻略</button>
-    </a>
-
-    </a>
-    <a href="yokuarubanmen.html">
-        <button>よくある盤面（製作中）</button>
-    </a>
-
-    <br>
-  <a href="https://nezumika-kotodaman.onrender.com">
-    お問い合わせ
-</a>
+</div>
 
 </body>
 
