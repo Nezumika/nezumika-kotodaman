@@ -290,7 +290,7 @@
       </div>
     </div>
 
-    <!-- ページ2：🚀 データベースバージョン管理（新機能！） -->
+    <!-- ページ2：🚀 データベースバージョン管理 -->
     <div id="version-page" class="page-section">
       <!-- バージョン追加・更新フォーム -->
       <div class="wood-card">
@@ -318,11 +318,12 @@
                 <th>ID</th>
                 <th>バージョン</th>
                 <th>リリース日</th>
+                <th>操作</th>
               </tr>
             </thead>
             <tbody id="versionTableBody">
               <tr>
-                <td colspan="3" style="text-align: center; color: #8d6e63;">パスワードを入力して「データを読み込む」を押してください。</td>
+                <td colspan="4" style="text-align: center; color: #8d6e63;">パスワードを入力して「データを読み込む」を押してください。</td>
               </tr>
             </tbody>
           </table>
@@ -426,7 +427,7 @@
         tbody.innerHTML = '';
 
         if (data.length === 0) {
-          tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;">バージョン履歴がありません！</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">バージョン履歴がありません！</td></tr>';
           return;
         }
 
@@ -437,6 +438,9 @@
             <td>${item.id}</td>
             <td><strong>${escapeHtml(item.version)}</strong>${isLatest ? '<span class="badge-latest">最新</span>' : ''}</td>
             <td>${item.release_date}</td>
+            <td>
+              <button class="btn-hide" onclick="deleteVersion(${item.id}, '${escapeHtml(item.version)}')">取り消し</button>
+            </td>
           `;
           tbody.appendChild(tr);
         });
@@ -481,7 +485,38 @@
       }
     }
 
-    // 非表示処理
+    // 4. 🚀 バージョン更新の取り消し（削除）処理
+    async function deleteVersion(id, versionStr) {
+      if (!confirm(`バージョン「${versionStr}」(ID: ${id}) を取り消し（削除）しますか？`)) {
+        return;
+      }
+
+      const password = document.getElementById('adminPass').value;
+      if (!password) {
+        alert('パスワードを入力してください！');
+        return;
+      }
+
+      try {
+        const response = await fetch(`https://nezumika-kotodaman.onrender.com/api/admin/versions/${id}`, {
+          method: 'DELETE',
+          headers: { 'x-admin-password': password }
+        });
+
+        if (response.ok) {
+          alert('バージョン取り消しが完了しましたっ！');
+          loadVersions(); // テーブルを自動更新
+        } else {
+          const errData = await response.json();
+          alert(`削除に失敗しました: ${errData.error || 'エラーが発生しました'}`);
+        }
+      } catch (error) {
+        console.error(error);
+        alert('通信エラーが発生しました。');
+      }
+    }
+
+    // 問い合わせ非表示処理
     async function hideInquiry(id) {
       if (!confirm(`ID: ${id} の問い合わせを非表示にしますか？`)) return;
 

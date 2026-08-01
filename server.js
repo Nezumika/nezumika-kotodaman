@@ -167,6 +167,31 @@ app.post('/api/admin/versions', async (req, res) => {
     }
 });
 
+// --------------------------------------------------
+// 🚀【新規追加】🔒 バージョンを削除・取り消しするAPI
+// --------------------------------------------------
+app.delete('/api/admin/versions/:id', async (req, res) => {
+    const adminPassword = req.headers['x-admin-password'];
+    if (adminPassword !== 'UtoKun1313') { // 設定したパスワード
+        return res.status(401).json({ error: 'パスワードが違います！' });
+    }
+
+    const { id } = req.params;
+
+    try {
+        // 対象のバージョンを削除
+        const [result] = await db.query('DELETE FROM versions WHERE id = ?', [id]);
+        
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: '該当するバージョンが見つかりませんでした' });
+        }
+
+        res.json({ message: 'バージョンを取り消し（削除）しました！' });
+    } catch (error) {
+        console.error('バージョン削除エラー:', error);
+        res.status(500).json({ error: 'サーバーエラーが発生しました。外部キー制約等の可能性があります。' });
+    }
+});
 
 // サーバー起動
 app.listen(PORT, () => {
