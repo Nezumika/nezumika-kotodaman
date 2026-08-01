@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="headStyle.css">
     <title>ねずみかの攻略サイト</title>
 
     <style>
@@ -101,6 +101,18 @@
 
 
 <body>
+
+    <!-- メニューを表示したい場所（bodyの先頭など）に置く！ -->
+<div id="header-placeholder"></div>
+
+<script>
+  // header.html を自動で読み込んで差し込む魔法のコード！
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+    });
+</script>
 
     <h1>ねずみかの攻略サイト</h1>
 

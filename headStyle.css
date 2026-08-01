@@ -1,0 +1,52 @@
+/* ヘッダー全体（温かみのある木目調カラー） */
+.site-header {
+  background-color: #5c4033; /* ダークブラウン */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.15));
+  color: #fff8dc; /* 生成り色・コーンシルク */
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: sticky; /* 画面上部に固定 */
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #f4e8c1;
+}
+
+/* メニュー部分 */
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px; /* メニュー同士の間隔 */
+}
+
+.site-nav a {
+  color: #fff8dc;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* ホバー時の効果 */
+.site-nav a:hover {
+  background: #8b5a2b; /* 明るめの木目ブラウン */
+  color: #ffffff;
+  transform: translateY(-2px);
+}

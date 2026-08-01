@@ -31,6 +31,9 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// 👈 ここにこの1行を追加してくださいっ！
+app.use(express.static(__dirname));
+
 // ルーティング設定
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "inquiry.html"));
