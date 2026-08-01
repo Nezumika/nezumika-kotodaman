@@ -4,22 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="headStyle.css">
     <title>ねずみかの攻略サイト</title>
 
+    <!-- CSSの読み込み（共通） -->
+    <link rel="stylesheet" href="headStyle.css">
+    <!-- ページ専用の追加スタイル（style.cssにまとめてもOK！） -->
     <style>
         /* 1. 全体：生成り色と木肌のダークブラウン */
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
             font-size: 16px;
             line-height: 1.7;
-            color: #4a3b32; /* 木肌のようなダークブラウン */
-            background-color: #f7f4ee; /* 温かい生成り色 */
+            color: #4a3b32;
+            /* 木肌のようなダークブラウン */
+            background-color: #f7f4ee;
+            /* 温かい生成り色 */
             margin: 0;
             padding: 24px;
-            max-width: 800px; /* 読みやすい幅に制限 */
+        }
+
+        /* 💡 メインコンテンツの幅制限と中央寄せ */
+        .page-container {
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 20px;
+            /* ヘッダーとの間隔 */
         }
 
         /* 2. タイトル：木の看板風 */
@@ -29,7 +39,8 @@
             color: #3d2e24;
             margin-bottom: 1rem;
             letter-spacing: 0.03em;
-            border-bottom: 2px solid #d4c5b3; /* 枝のような優しい仕切り線 */
+            border-bottom: 2px solid #d4c5b3;
+            /* 枝のような優しい仕切り線 */
             padding-bottom: 12px;
         }
 
@@ -62,7 +73,8 @@
             font-weight: 600;
             padding: 12px 24px;
             color: #ffffff;
-            background-color: #7c5c43; /* ウッドブラウン */
+            background-color: #7c5c43;
+            /* ウッドブラウン */
             border: none;
             border-radius: 6px;
             box-shadow: 0 2px 4px rgba(74, 59, 50, 0.15);
@@ -80,9 +92,23 @@
             transform: translateY(0);
         }
 
-        /* 6. お問い合わせリンク */
-        .contact-link {
-            display: inline-block;
+        /* --- 💡 お問い合わせ & Twitterエリアのスタイル --- */
+        .contact-sns-zone {
+            display: flex;
+            flex-wrap: wrap;
+            /* スマホなどで折り返せるように */
+            gap: 15px;
+            /* リンク同士の間隔 */
+            align-items: center;
+            /* 縦方向の中央揃え */
+            margin-top: 20px;
+        }
+
+        /* 共通のリンクスタイル */
+        .footer-link {
+            display: inline-flex;
+            /* アイコンと文字を横並びに */
+            align-items: center;
             color: #8c6b52;
             font-weight: 600;
             text-decoration: none;
@@ -91,57 +117,62 @@
             transition: background-color 0.2s ease;
         }
 
-        .contact-link:hover {
+        .footer-link:hover {
             background-color: #eae3d9;
             text-decoration: underline;
         }
+
+        /* アイコンと文字の間に少し隙間を作る */
+        .link-icon {
+            margin-right: 6px;
+            font-size: 1.1em;
+        }
     </style>
 
+    <!-- 💡 JavaScriptでヘッダーを読み込む！(defer追加) -->
+    <script src="header.js" defer></script>
 </head>
-
 
 <body>
 
-    <!-- メニューを表示したい場所（bodyの先頭など）に置く！ -->
-<div id="header-placeholder"></div>
+    <!-- 💡 ここに自動でメニューが挿入されます！ -->
+    <div id="header-placeholder"></div>
 
-<script>
-  // header.html を自動で読み込んで差し込む魔法のコード！
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-placeholder').innerHTML = data;
-    });
-</script>
+    <!-- メインコンテンツ領域 -->
+    <main class="page-container">
 
-    <h1>ねずみかの攻略サイト</h1>
+        <h1>ねずみかの攻略サイト</h1>
 
-    <div class="intro-text">
-        <p>
-            「少なくともメモ帳よりは見やすい」をまずはモットーに日々更新中！<br>
-            バグ、誤字、ご意見等ありましたら下記よりお問い合わせをお願いします。
-        </p>
-    </div>
+        <div class="intro-text">
+            <p>
+                「少なくともメモ帳よりは見やすい」をまずはモットーに日々更新中！<br>
+                バグ、誤字、ご意見等ありましたら下記よりお問い合わせをお願いします。
+            </p>
+        </div>
 
-    <!-- ボタンをきれいに並べるグループ -->
-    <div class="nav-group">
-        <a href="kame1t.html">
-            <button>仮面ライダー大討伐攻略へ</button>
-        </a>
-        <a href="kourin.html">
-            <button>降臨攻略</button>
-        </a>
-        <a href="yokuarubanmen.html">
-            <button>よくある盤面（製作中）</button>
-        </a>
-    </div>
+        <!-- ボタンをきれいに並べるグループ -->
+        <div class="nav-group">
+            <a href="yokuarubanmen.html"><button>よくある盤面（製作中）</button></a>
+            <a href="kourin.html"><button>降臨攻略</button></a>
+            <a href="kame1t.html"><button>仮面ライダー大討伐攻略へ</button></a>
+        </div>
 
-    <!-- RenderのURLではなく、作成したHTMLファイル名を指定します -->
-<div>
-    <a href="inquiry.html" class="contact-link">
-        ✉️ お問い合わせはこちら
-    </a>
-</div>
+        <!-- 💡 お問い合わせとSNSリンクを横並びにするエリア -->
+        <div class="contact-sns-zone">
+            <!-- お問い合わせリンク -->
+            <a href="inquiry.html" class="footer-link contact-link">
+                <span class="link-icon">✉️</span>お問い合わせはこちら
+            </a>
+
+            <!-- 🐦 Twitter(X)リンク -->
+            <!-- ⚠️「ユーザー名」の部分をご自身のアカウントIDに書き換えてください -->
+            <a href="https://x.com/nezumika_site" class="footer-link twitter-link" target="_blank"
+                rel="noopener noreferrer">
+                <span class="link-icon">🐦</span>X（旧ツイッター）はこちら
+            </a>
+        </div>
+
+    </main>
 
 </body>
 

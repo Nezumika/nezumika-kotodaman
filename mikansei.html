@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>未完成</title>
-
-    <style>
-    body {
-        font-size: 20px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未完成 - マイサイト</title>
+  
+  <!-- CSSの読み込み（共通） -->
+  <link rel="stylesheet" href="headStyle.css">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- このページ専用の追加スタイル -->
+  <style>
+    .not-found-card {
+      text-align: center; /* 中身を中央揃えに */
     }
-
-    h1 {
-        font-size: 36px;
+    
+    .character-img {
+      max-width: 100%; /* 横幅いっぱいまで */
+      height: auto;
+      border-radius: 8px; /* 角を少し丸く */
+      border: 3px solid #8b5a2b; /* 木目のフチを付ける */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* 影を付ける */
+      margin-bottom: 10px;
     }
-
-    button {
-        font-size: 20px;
-        padding: 15px;
+    
+    .character-caption {
+      font-weight: bold;
+      color: #5c4033;
+      margin-bottom: 20px;
+      display: block;
     }
-
-.youtube {
-    width: 100%;
-    max-width: 560px;
-    margin: 20px auto;
-}
-
-.youtube iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-}
-    </style>
-
+  </style>
+  
+  <!-- 💡 JavaScriptでヘッダーを自動追加！ -->
+  <script src="header.js" defer></script>
 </head>
-
 <body>
 
-<h1>申し訳ありません！</h1>
+  <!-- 💡 ヘッダー挿入用 placeholder -->
+  <div id="header-placeholder"></div>
 
-<p>まだ作ってないの！ごめんなさい！</p>
+  <!-- 💡 メインコンテンツ領域 -->
+  <main class="page-container">
+    
+    <!-- 木目調カードデザインを適用 -->
+    <div class="wood-card not-found-card">
+      
+      <!-- カードのタイトル部分 -->
+      <div class="card-title">申し訳ありません！</div>
+      
+      <!-- カードの中身 -->
+      <div class="card-content">
+        <p class="word-text">
+          まだ作ってないの！ごめんなさい！<br>
+          完成までしばらくお待ちくださいっ！
+        </p>
 
-<p><br></p>
+        <br>
 
-<img src="images/ooransye.jpg" alt="オーランシェ">
-<br>
-オーランシェかわいい
+        <!-- 画像エリア -->
+        <img src="images/ooransye.jpg" alt="オーランシェ" class="character-img">
+        <span class="character-caption">オーランシェかわいい</span>
 
-<br>
-<br>
+      </div>
+    </div>
 
-<br>
+    <!-- ボタンエリア（共通デザイン） -->
+    <div class="button-group">
+      <a href="index.html" class="wood-btn">トップへ戻る</a>
+    </div>
 
-<a href="index.html">
-    <button>トップへ戻る</button>
-</a>
+  </main>
 
 </body>
+</html>

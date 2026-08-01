@@ -1,78 +1,185 @@
-/* 1. 全体：温かみのある生成り（アイボリー）ベース */
+/* --- 全体スタイル --- */
 body {
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #4a3b32; /* 深い木肌のようなダークブラウン */
-    background-color: #f7f4ee; /* 優しく温かみのある生成り色 */
-    margin: 0;
-    padding: 24px;
+  background-color: #2b1b17; /* 深みのあるダークブラウン背景 */
+  color: #333333;
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', meiryo, sans-serif;
+  margin: 0;
+  padding-bottom: 50px;
 }
 
-h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #3d2e24;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.03em;
-    border-bottom: 2px solid #d4c5b3; /* 木の枝のような優しい区切り線 */
-    padding-bottom: 8px;
+.page-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 15px;
 }
 
-/* 2. ボタン：木のプレートをイメージした温かいデザイン */
-.button-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.95rem;
-    font-weight: 600;
-    padding: 10px 22px;
-    color: #ffffff;
-    background-color: #7c5c43; /* メインのウッドブラウン */
-    text-decoration: none;
-    border: none;
-    border-radius: 6px; /* 角をほんのり丸く */
-    box-shadow: 0 2px 4px rgba(74, 59, 50, 0.15); /* 木の厚みを感じる影 */
-    transition: all 0.2s ease;
-    cursor: pointer;
+/* --- タイトルエリア --- */
+.board-header {
+  text-align: center;
+  background: #3e2723;
+  color: #fff8dc;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  border: 2px solid #8b5a2b;
+  margin-bottom: 25px;
 }
 
-.button-link:hover {
-    background-color: #634731; /* 濃い目の木の色へ */
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(74, 59, 50, 0.2);
+.badge {
+  background-color: #8b5a2b;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
 
-.button-link:active {
-    transform: translateY(0);
+.page-title {
+  margin: 10px 0 5px;
+  font-size: 1.8rem;
+  color: #f4e8c1;
 }
 
-/* 3. リスト・グリッド：木製カードのような背景 */
-.word-list {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px 24px;
+.page-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
-.word-grid {
-    display: grid;
-    grid-template-rows: repeat(13, auto);
-    grid-auto-flow: column;
-    gap: 8px 24px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #e6ded5; /* 淡い木肌色 */
-    box-shadow: 0 2px 8px rgba(124, 92, 67, 0.05); /* ほのかな影 */
+/* --- 木目カード（details） --- */
+.wood-card {
+  background: #fdfbf7; /* 温かみのある生成り色の紙質感 */
+  border: 2px solid #8b5a2b;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .word-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+/* タップする見出し部分 */
+.wood-card > .card-title {
+  background: #5c4033;
+  color: #fff8dc;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 15px 20px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none; /* デフォルトの矢印を消す */
+  position: relative;
+}
 
-    .word-grid {
-        grid-template-rows: repeat(20, auto);
-        overflow-x: auto;
-    }
+/* カスタム矢印（右側に表示） */
+.wood-card > .card-title::after {
+  content: "▼";
+  position: absolute;
+  right: 20px;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  color: #f4e8c1;
+}
+
+/* 開いている時の矢印回転 */
+.wood-card[open] > .card-title::after {
+  transform: rotate(180deg);
+}
+
+/* 開いた中身 */
+.card-content {
+  padding: 20px;
+  border-top: 1px solid #d7ccc8;
+}
+
+/* オススメカード（特別強調） */
+.highlight-card {
+  border: 2px solid #d4af37; /* ゴールド風 */
+}
+.highlight-card > .card-title {
+  background: #8b5a2b;
+}
+
+.recommend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.recommend-list li {
+  padding: 10px;
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border-left: 5px solid #8b5a2b;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+}
+.recommend-list li span {
+  color: #e65100;
+  font-weight: bold;
+}
+
+/* グループ分け */
+.word-group {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #d7ccc8;
+}
+.word-group:last-child {
+  border-bottom: none;
+}
+
+.group-title {
+  margin: 0 0 5px 0;
+  font-size: 0.95rem;
+  color: #5c4033;
+}
+
+.word-text {
+  margin: 0;
+  line-height: 1.6;
+  color: #4e342e;
+  word-break: break-all;
+}
+
+/* サブアコーディオン */
+.sub-details {
+  background: #f5f5f5;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.sub-summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: #5c4033;
+}
+
+/* --- ボタンデザイン --- */
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.wood-btn {
+  flex: 1;
+  text-align: center;
+  background-color: #8b5a2b;
+  color: #ffffff;
+  padding: 12px 0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.wood-btn.sub {
+  background-color: #5c4033;
+}
+
+.wood-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }

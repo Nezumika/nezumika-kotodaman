@@ -12,11 +12,14 @@
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
             font-size: 16px;
             line-height: 1.7;
-            color: #4a3b32; /* 木肌のようなダークブラウン */
-            background-color: #f7f4ee; /* 温かい生成り色 */
+            color: #4a3b32;
+            /* 木肌のようなダークブラウン */
+            background-color: #f7f4ee;
+            /* 温かい生成り色 */
             margin: 0;
             padding: 24px;
-            max-width: 800px; /* 中央に寄せて読みやすく */
+            max-width: 800px;
+            /* 中央に寄せて読みやすく */
             margin-left: auto;
             margin-right: auto;
         }
@@ -28,7 +31,8 @@
             color: #3d2e24;
             margin-bottom: 1rem;
             letter-spacing: 0.03em;
-            border-bottom: 2px solid #d4c5b3; /* 木の枝風の区切り線 */
+            border-bottom: 2px solid #d4c5b3;
+            /* 木の枝風の区切り線 */
             padding-bottom: 12px;
         }
 
@@ -55,7 +59,8 @@
         .quest-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #7c5c43; /* メインウッドカラー */
+            color: #7c5c43;
+            /* メインウッドカラー */
             margin: 0 0 16px 0;
             display: flex;
             align-items: center;
@@ -63,7 +68,8 @@
         }
 
         .quest-title::before {
-            content: "⚔️"; /* クエストっぽいワンポイントアイコン */
+            content: "⚔️";
+            /* クエストっぽいワンポイントアイコン */
         }
 
         /* 5. YouTube動画埋め込みエリア */
@@ -72,7 +78,8 @@
             max-width: 100%;
             margin: 0 auto;
             border-radius: 6px;
-            overflow: hidden; /* 角丸を動画にも適用 */
+            overflow: hidden;
+            /* 角丸を動画にも適用 */
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -95,7 +102,8 @@
             font-weight: 600;
             padding: 10px 20px;
             color: #4a3b32;
-            background-color: #e6ded5; /* 落ち着いたベージュ */
+            background-color: #e6ded5;
+            /* 落ち着いたベージュ */
             border: 1px solid #c8bcad;
             border-radius: 6px;
             cursor: pointer;
@@ -112,6 +120,28 @@
 
 <body>
 
+    <head>
+        <meta charset="UTF-8">
+        <title>マイサイト</title>
+
+        <!-- CSSの読み込み -->
+        <link rel="stylesheet" href="headStyle.css">
+        <!-- 💡 JavaScriptでヘッダーを読み込む！ -->
+        <script src="header.js"></script>
+    </head>
+
+    <body>
+
+        <!-- 💡 ここに自動でメニューが挿入されます！ -->
+        <div id="header-placeholder"></div>
+
+        <!-- ここから下が各ページのコンテンツ -->
+        <main>
+            <h1>コンテンツ本文</h1>
+        </main>
+
+    </body>
+
     <h1>降臨攻略</h1>
 
     <div class="intro-text">
@@ -123,9 +153,7 @@
         <h2 class="quest-title">ムオン</h2>
 
         <div class="youtube">
-            <iframe
-                src="https://www.youtube.com/embed/R3WI-fMPDbE"
-                title="YouTube video player"
+            <iframe src="https://www.youtube.com/embed/R3WI-fMPDbE" title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
             </iframe>
