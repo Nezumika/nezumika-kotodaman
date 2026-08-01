@@ -105,6 +105,41 @@ app.get('/api/admin/inquiries', async (req, res) => {
   }
 });
 
+// 🔒 問い合わせ一覧を取得する管理者用API（非表示でないものだけ取得）
+app.get('/api/admin/inquiries', async (req, res) => {
+    const adminPassword = req.headers['x-admin-password'];
+    if (adminPassword !== '***') { // 設定したパスワード
+        return res.status(401).json({ error: 'パスワードが違います！' });
+    }
+
+    try {
+        // is_hidden が FALSE（または 0）のデータだけを取得！
+        const [rows] = await db.query('SELECT * FROM inquiries WHERE is_hidden = FALSE OR is_hidden IS NULL ORDER BY id DESC');
+        res.json(rows);
+    } catch (error) {
+        console.error('データ取得エラー:', error);
+        res.status(500).json({ error: 'サーバーエラーが発生しました' });
+    }
+});
+
+// 🔒 問い合わせを非表示にするAPI
+app.post('/api/admin/inquiries/:id/hide', async (req, res) => {
+    const adminPassword = req.headers['x-admin-password'];
+    if (adminPassword !== '***') { // 設定したパスワード
+        return res.status(401).json({ error: 'パスワードが違います！' });
+    }
+
+    const { id } = req.params;
+
+    try {
+        await db.query('UPDATE inquiries SET is_hidden = TRUE WHERE id = ?', [id]);
+        res.json({ message: '非表示にしました！' });
+    } catch (error) {
+        console.error('非表示エラー:', error);
+        res.status(500).json({ error: 'サーバーエラーが発生しました' });
+    }
+});
+
 // サーバー起動（コードの一番下に移動させています）
 app.listen(PORT, () => {
   console.log(`サーバー起動：http://localhost:${PORT}`);
