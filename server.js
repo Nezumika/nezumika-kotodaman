@@ -13,6 +13,27 @@ const db = mysql.createPool({
   port: process.env.MYSQLPORT
 });
 
+const express = require('express');
+const app = express();
+
+// 💡 OPTIONSリクエストを含むすべての通信でCORSを完全許可する設定
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, x-admin-password'); // ← x-admin-password を明示的に許可！
+    
+    // ブラウザからの事前確認（OPTIONS）には即座に 200 OK を返す！
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+    next();
+});
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// ～ ここより下に既存の /inquiry や /api/admin/inquiries などの処理を書く ～
+
 
 app.use(express.urlencoded({ extended: true }));
 
