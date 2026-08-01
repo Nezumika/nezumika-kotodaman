@@ -108,7 +108,7 @@ app.get('/api/admin/inquiries', async (req, res) => {
 // 🔒 問い合わせ一覧を取得する管理者用API（非表示でないものだけ取得）
 app.get('/api/admin/inquiries', async (req, res) => {
     const adminPassword = req.headers['x-admin-password'];
-    if (adminPassword !== '***') { // 設定したパスワード
+    if (adminPassword !== 'UtoKun1313') { // 設定したパスワード
         return res.status(401).json({ error: 'パスワードが違います！' });
     }
 
@@ -125,7 +125,7 @@ app.get('/api/admin/inquiries', async (req, res) => {
 // 🔒 問い合わせを非表示にするAPI
 app.post('/api/admin/inquiries/:id/hide', async (req, res) => {
     const adminPassword = req.headers['x-admin-password'];
-    if (adminPassword !== '***') { // 設定したパスワード
+    if (adminPassword !== 'UtoKun1313') { // 設定したパスワード
         return res.status(401).json({ error: 'パスワードが違います！' });
     }
 
