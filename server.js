@@ -86,26 +86,7 @@ app.get("/version", async (req, res) => {
   }
 });
 
-// 🔒 問い合わせ一覧を取得する管理者用API
-app.get('/api/admin/inquiries', async (req, res) => {
-    const adminPassword = req.headers['x-admin-password'];
-
-    // パスワードチェック（※ご自身の設定したいパスワードに変更してくださいね！）
-    if (adminPassword !== 'UtoKun1313') {
-        return res.status(401).json({ error: 'パスワードが違います！' });
-    }
-
-    try {
-        // テーブル名を 'inquiries' に修正しました！
-        const [rows] = await db.query('SELECT * FROM inquiries ORDER BY id DESC');
-        res.json(rows);
-    } catch (error) {
-        console.error('データ取得エラー:', error);
-        res.status(500).json({ error: 'サーバーエラーが発生しました' });
-  }
-});
-
-// 🔒 問い合わせ一覧を取得する管理者用API（非表示でないものだけ取得）
+// 🔒 問い合わせ一覧を取得する管理者用API（非表示でないものだけ取得！）
 app.get('/api/admin/inquiries', async (req, res) => {
     const adminPassword = req.headers['x-admin-password'];
     if (adminPassword !== 'UtoKun1313') { // 設定したパスワード
@@ -140,7 +121,7 @@ app.post('/api/admin/inquiries/:id/hide', async (req, res) => {
     }
 });
 
-// サーバー起動（コードの一番下に移動させています）
+// サーバー起動
 app.listen(PORT, () => {
   console.log(`サーバー起動：http://localhost:${PORT}`);
 });
