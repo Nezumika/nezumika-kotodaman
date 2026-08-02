@@ -1,183 +1,206 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>「〇〇きょう〇〇」盤面</title>
-  
-  <!-- CSSの読み込み -->
-  <link rel="stylesheet" href="headStyle.css">
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- 💡 JavaScriptでヘッダーを自動追加！ -->
-  <script src="header.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「〇〇きょう〇〇」盤面</title>
+
+    <!-- CSSの読み込み -->
+    <link rel="stylesheet" href="headStyle.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 💡 JavaScriptでヘッダーを自動追加！ -->
+    <script src="header.js"></script>
 </head>
+
 <body>
 
-  <!-- 💡 ヘッダー挿入用 -->
-  <div id="header-placeholder"></div>
+    <!-- 💡 ヘッダー挿入用 -->
+    <div id="header-placeholder"></div>
 
-  <!-- 💡 メインコンテンツ領域 -->
-  <main class="page-container">
-    
-    <div class="board-header">
-      <span class="badge">盤面攻略</span>
-      <h1 class="page-title">〇〇きょう〇〇</h1>
-      <p class="page-desc">「〇〇きょう〇〇」盤面で作れる文字一覧です。<br>タップして詳細を開く</p>
-    </div>
+    <!-- 💡 メインコンテンツ領域 -->
+    <main class="page-container">
 
-    <!-- オススメ（特別デザイン） -->
-    <details class="wood-card highlight-card" open>
-      <summary class="card-title">⭐ オススメ７文字</summary>
-      <div class="card-content">
-        <ul class="recommend-list">
-          <li><strong>あいきょうしん</strong><span>（11コンボ）</span></li>
-          <li><strong>こうきょうかい</strong><span>（12コンボ）</span></li>
-          <li><strong>こうきょうしん</strong><span>（13コンボ）</span></li>
-          <li><strong>かんきょうこう</strong><span>（10コンボ）</span></li>
-        </ul>
-      </div>
-    </details>
-
-    <!-- 〇いきょう〇〇 -->
-    <details class="wood-card">
-      <summary class="card-title">〇いきょう〇〇</summary>
-      <div class="card-content">
-        
-        <div class="word-group">
-          <h3 class="group-title">～〇いきょう〇い～</h3>
-          <p class="word-text">ういきょうせい / えいきょうざい / せいきょうかい / だいきょうかい / ちいきょうてい / へいきょうるい / らいきょうへい / りいきょうだい</p>
+        <div class="board-header">
+            <span class="badge">盤面攻略</span>
+            <h1 class="page-title">〇〇きょう〇〇</h1>
+            <p class="page-desc">「〇〇きょう〇〇」盤面で作れる文字一覧です。<br>タップして詳細を開く</p>
         </div>
 
-        <div class="word-group">
-          <h3 class="group-title">～〇いきょう〇う～</h3>
-          <p class="word-text">だいきょうこう / ないきょうぼう</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇いきょう〇ん～</h3>
-          <p class="word-text">あいきょうげん / あいきょうしん / けいきょうかん / さいきょうせん / ざいきょうにん / すいきょうじん / せいきょういん / だいきょういん / だいきょうかん / だいきょうきん / まいきょうげん / めいきょうかん</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇いきょう〇く～</h3>
-          <p class="word-text">さいきょういく / せいきょういく / だいきょうこく</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇いきょう〇ゃ/ゅ/ょ～</h3>
-          <p class="word-text">ていきょうしゃ / せいきょうしょ</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～その他～</h3>
-          <p class="word-text">あいきょうべに / あいきょうもの / かいきょうれき / さいきょうずけ / さいきょうづけ / さいきょうまる / さいきょうみそ / さいきょうやき</p>
-        </div>
-
-      </div>
-    </details>
-
-    <!-- 〇うきょう〇〇 -->
-    <details class="wood-card">
-      <summary class="card-title">〇うきょう〇〇</summary>
-      <div class="card-content">
-        
-        <div class="word-group">
-          <h3 class="group-title">～〇うきょう〇い～</h3>
-          <p class="word-text">こうきょうかい / こうきょうさい / こうきょうざい / こうきょうせい / こうきょうたい / そうきょうだい / とうきゅうすい</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇うきょう〇う～</h3>
-          <p class="word-text">とうきょうこう / のうきょうほう</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇うきょう〇ん～</h3>
-          <p class="word-text">こうきょうえん / こうきょうけん / こうきょうしん / こうきょうじん / とうきょうべん / とうきょうわん / のうきょうげん / ふうきょうじん / ほうきょういん / ほうきょうざん / ほうきょうにん / ぼうきょううん</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇うきょう〇く～</h3>
-          <p class="word-text">こうきょういく / こうきょうがく / そうきょういく / ほうきょういく / もうきょういく</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇うきょう〇ゃ/ゅ/ょ～</h3>
-          <p class="word-text">もうきょうじょ</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～その他～</h3>
-          <p class="word-text">こうきょうぶつ / こうきょうやど / とうきょううど / とうきょうえき / とうきょうがす</p>
-        </div>
-
-      </div>
-    </details>
-
-    <!-- 〇んきょう〇〇 -->
-    <details class="wood-card">
-      <summary class="card-title">〇んきょう〇〇</summary>
-      <div class="card-content">
-        
-        <div class="word-group">
-          <h3 class="group-title">～〇んきょう〇い～</h3>
-          <p class="word-text">かんきょうぜい / きんきょうれい / さんきょうせい / さんきょうだい / ざんきょうけい / はんきょうせい / ぶんきょうかい / べんきょうかい</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇んきょう〇う～</h3>
-          <p class="word-text">かんきょうこう / かんきょうほう / せんきょうろう / ぜんきょうとう / にんきょうどう / はんきょうほう / ぶんきょうどう / べんきょうほう / ほんきょうぼう</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇んきょう〇ん～</h3>
-          <p class="word-text">かんきょうけん / けんきょうじん / ざんきょうおん / ぜんきょうせん / てんきょういん / はんきょうばん / はんきょうらん / ぶんきょうこん / ぼんきょうげん / れんきょうせん</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇んきょう〇く～</h3>
-          <p class="word-text">おんきょうがく / かんきょうがく / しんきょういく / なんきょういく / ぶんきょうぞく / ぶんきょうちく / へんきょうはく</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～〇んきょう〇ゃ/ゅ/ょ～</h3>
-          <p class="word-text">かんきょうしゃ</p>
-        </div>
-
-        <div class="word-group">
-          <h3 class="group-title">～その他～</h3>
-          <p class="word-text">おんきょうきき / かんきょうちず / かんきょうふか / かんきょうほご / さんきょうごき / ぶんきょうのふ / べんきょうべや</p>
-        </div>
-
-      </div>
-    </details>
-
-    <!-- その他７文字 -->
-    <details class="wood-card">
-      <summary class="card-title">その他７文字</summary>
-      <div class="card-content">
-        
-        <details class="sub-details">
-          <summary class="sub-summary">あ行～た行</summary>
-          <p class="word-text">あききょうげん / あききょうしつ / あびきょうかん / いふきょうだい / いぼきょうだい / えききょうづか / えどきょうげん / えるきょうかい / おやきょうだい / かぎきょうたく / かくきょうどう / きりきょうげん / ぎむきょういく / くっきょういち / くにきょうだん / げかきょうせい / こっきょうかい / こっきょうせん / ざつきょうげん / しかきょうせい / しちきょうおち / しやきょうさく / しゅきょうしな / じききょうめい / じこきょういく / じゅきょうけん / じょきょういん / じょきょうじゅ / せっきょうしゃ / せっきょうとき / せっきょうぶし / せわきょうげん / そがきょうげん / そがきょうだい / そっきょうげき / そっきょうてき / そろきょうあい / たてきょうげん / ちりきょういく</p>
+        <!-- オススメ（特別デザイン） -->
+        <details class="wood-card highlight-card" open>
+            <summary class="card-title">⭐ オススメ７文字</summary>
+            <div class="card-content">
+                <ul class="recommend-list">
+                    <li><strong>あいきょうしん</strong><span>（11コンボ）</span></li>
+                    <li><strong>こうきょうかい</strong><span>（12コンボ）</span></li>
+                    <li><strong>こうきょうしん</strong><span>（13コンボ）</span></li>
+                    <li><strong>かんきょうこう</strong><span>（10コンボ）</span></li>
+                </ul>
+            </div>
         </details>
 
-        <details class="sub-details">
-          <summary class="sub-summary">な行～わ行</summary>
-          <p class="word-text">なかきょうれん / なつきょうげん / なるきょうだい / にしきょうごく / にっきょうはん / にっきょうれん / ねっきょうてき / ねっきょうのひ / ねづきょうかい / のだきょうへい / はつきょうげん / はるきょうげん / ばどきょうだい / ぱりきょうてい / ひめきょうだい / ふくきょうざい / ほごきょうてい / ほずきょうえき / ほっきょうだい / ほづきょうえき / ほりきょうあん / まえきょうげん / ままきょうだい / みずきょうげん / みつきょうえき / みぶきょうげん / やっきょうそう / よびきょういく / らっきょうづけ / りかきょういく / るりきょうかい / れごきょうしつ / ろめきょうてい / わききょうげん / わだきょうへい</p>
+        <!-- 〇いきょう〇〇 -->
+        <details class="wood-card">
+            <summary class="card-title">〇いきょう〇〇</summary>
+            <div class="card-content">
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇いきょう〇い～</h3>
+                    <p class="word-text">ういきょうせい / えいきょうざい / せいきょうかい / だいきょうかい / ちいきょうてい / へいきょうるい / らいきょうへい / りいきょうだい
+                    </p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇いきょう〇う～</h3>
+                    <p class="word-text">だいきょうこう / ないきょうぼう</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇いきょう〇ん～</h3>
+                    <p class="word-text">あいきょうげん / あいきょうしん / けいきょうかん / さいきょうせん / ざいきょうにん / すいきょうじん / せいきょういん / だいきょういん /
+                        だいきょうかん / だいきょうきん / まいきょうげん / めいきょうかん</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇いきょう〇く～</h3>
+                    <p class="word-text">さいきょういく / せいきょういく / だいきょうこく</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇いきょう〇ゃ/ゅ/ょ～</h3>
+                    <p class="word-text">ていきょうしゃ / せいきょうしょ</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～その他～</h3>
+                    <p class="word-text">あいきょうべに / あいきょうもの / かいきょうれき / さいきょうずけ / さいきょうづけ / さいきょうまる / さいきょうみそ / さいきょうやき
+                    </p>
+                </div>
+
+            </div>
         </details>
 
-      </div>
-    </details>
+        <!-- 〇うきょう〇〇 -->
+        <details class="wood-card">
+            <summary class="card-title">〇うきょう〇〇</summary>
+            <div class="card-content">
 
-    <!-- ボタンエリア -->
-    <div class="button-group">
-      <a href="yokuarubanmen.html" class="wood-btn">盤面一覧へ戻る</a>
-      <a href="index.html" class="wood-btn sub">トップへ戻る</a>
-    </div>
+                <div class="word-group">
+                    <h3 class="group-title">～〇うきょう〇い～</h3>
+                    <p class="word-text">こうきょうかい / こうきょうさい / こうきょうざい / こうきょうせい / こうきょうたい / そうきょうだい / とうきゅうすい</p>
+                </div>
 
-  </main>
+                <div class="word-group">
+                    <h3 class="group-title">～〇うきょう〇う～</h3>
+                    <p class="word-text">とうきょうこう / のうきょうほう</p>
+                </div>
 
+                <div class="word-group">
+                    <h3 class="group-title">～〇うきょう〇ん～</h3>
+                    <p class="word-text">こうきょうえん / こうきょうけん / こうきょうしん / こうきょうじん / とうきょうべん / とうきょうわん / のうきょうげん / ふうきょうじん /
+                        ほうきょういん / ほうきょうざん / ほうきょうにん / ぼうきょううん</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇うきょう〇く～</h3>
+                    <p class="word-text">こうきょういく / こうきょうがく / そうきょういく / ほうきょういく / もうきょういく</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇うきょう〇ゃ/ゅ/ょ～</h3>
+                    <p class="word-text">もうきょうじょ</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～その他～</h3>
+                    <p class="word-text">こうきょうぶつ / こうきょうやど / とうきょううど / とうきょうえき / とうきょうがす</p>
+                </div>
+
+            </div>
+        </details>
+
+        <!-- 〇んきょう〇〇 -->
+        <details class="wood-card">
+            <summary class="card-title">〇んきょう〇〇</summary>
+            <div class="card-content">
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇んきょう〇い～</h3>
+                    <p class="word-text">かんきょうぜい / きんきょうれい / さんきょうせい / さんきょうだい / ざんきょうけい / はんきょうせい / ぶんきょうかい / べんきょうかい
+                    </p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇んきょう〇う～</h3>
+                    <p class="word-text">かんきょうこう / かんきょうほう / せんきょうろう / ぜんきょうとう / にんきょうどう / はんきょうほう / ぶんきょうどう / べんきょうほう /
+                        ほんきょうぼう</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇んきょう〇ん～</h3>
+                    <p class="word-text">かんきょうけん / けんきょうじん / ざんきょうおん / ぜんきょうせん / てんきょういん / はんきょうばん / はんきょうらん / ぶんきょうこん /
+                        ぼんきょうげん / れんきょうせん</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇んきょう〇く～</h3>
+                    <p class="word-text">おんきょうがく / かんきょうがく / しんきょういく / なんきょういく / ぶんきょうぞく / ぶんきょうちく / へんきょうはく</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～〇んきょう〇ゃ/ゅ/ょ～</h3>
+                    <p class="word-text">かんきょうしゃ</p>
+                </div>
+
+                <div class="word-group">
+                    <h3 class="group-title">～その他～</h3>
+                    <p class="word-text">おんきょうきき / かんきょうちず / かんきょうふか / かんきょうほご / さんきょうごき / ぶんきょうのふ / べんきょうべや</p>
+                </div>
+
+            </div>
+        </details>
+
+        <!-- その他７文字 -->
+        <details class="wood-card">
+            <summary class="card-title">その他７文字</summary>
+            <div class="card-content">
+
+                <details class="sub-details">
+                    <summary class="sub-summary">あ行～た行</summary>
+                    <p class="word-text">あききょうげん / あききょうしつ / あびきょうかん / いふきょうだい / いぼきょうだい / えききょうづか / えどきょうげん / えるきょうかい /
+                        おやきょうだい / かぎきょうたく / かくきょうどう / きりきょうげん / ぎむきょういく / くっきょういち / くにきょうだん / げかきょうせい / こっきょうかい /
+                        こっきょうせん / ざつきょうげん / しかきょうせい / しちきょうおち / しやきょうさく / しゅきょうしな / じききょうめい / じこきょういく / じゅきょうけん /
+                        じょきょういん / じょきょうじゅ / せっきょうしゃ / せっきょうとき / せっきょうぶし / せわきょうげん / そがきょうげん / そがきょうだい / そっきょうげき /
+                        そっきょうてき / そろきょうあい / たてきょうげん / ちりきょういく</p>
+                </details>
+
+                <details class="sub-details">
+                    <summary class="sub-summary">な行～わ行</summary>
+                    <p class="word-text">なかきょうれん / なつきょうげん / なるきょうだい / にしきょうごく / にっきょうはん / にっきょうれん / ねっきょうてき / ねっきょうのひ /
+                        ねづきょうかい / のだきょうへい / はつきょうげん / はるきょうげん / ばどきょうだい / ぱりきょうてい / ひめきょうだい / ふくきょうざい / ほごきょうてい /
+                        ほずきょうえき / ほっきょうだい / ほづきょうえき / ほりきょうあん / まえきょうげん / ままきょうだい / みずきょうげん / みつきょうえき / みぶきょうげん /
+                        やっきょうそう / よびきょういく / らっきょうづけ / りかきょういく / るりきょうかい / れごきょうしつ / ろめきょうてい / わききょうげん / わだきょうへい</p>
+                </details>
+
+            </div>
+        </details>
+
+        <!-- ボタンエリア -->
+        <div class="button-group">
+            <a href="yokuarubanmen.html" class="wood-btn">盤面一覧へ戻る</a>
+            <a href="index.html" class="wood-btn sub">トップへ戻る</a>
+        </div>
+
+    </main>
+    <!-- スラッシュを自動で消してタグ化する魔法のコード -->
+    <script>
+        document.querySelectorAll('.word-text').forEach(el => {
+            const words = el.textContent.split('/').map(w => w.trim()).filter(Boolean);
+            el.innerHTML = words.map(w => `<span class="word-chip">${w}</span>`).join('');
+        });
+    </script>
 </body>
+
 </html>

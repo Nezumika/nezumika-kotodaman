@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span></span>
       </button>
       
-      <h1 class="site-title">サイトタイトル</h1>
+      <h1 class="site-title">ねずみかの攻略サイト</h1>
     </header>
 
     <!-- 💡 左から出てくるメニュー本体 -->

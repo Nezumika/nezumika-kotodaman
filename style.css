@@ -1,4 +1,6 @@
-/* --- 全体スタイル --- */
+/* ==========================================
+   全体スタイル
+   ========================================== */
 body {
   background-color: #2b1b17; /* 深みのあるダークブラウン背景 */
   color: #333333;
@@ -13,7 +15,9 @@ body {
   padding: 0 15px;
 }
 
-/* --- タイトルエリア --- */
+/* ==========================================
+   タイトルエリア
+   ========================================== */
 .board-header {
   text-align: center;
   background: #3e2723;
@@ -46,7 +50,9 @@ body {
   opacity: 0.9;
 }
 
-/* --- 木目カード（details） --- */
+/* ==========================================
+   木目カード（details）
+   ========================================== */
 .wood-card {
   background: #fdfbf7; /* 温かみのある生成り色の紙質感 */
   border: 2px solid #8b5a2b;
@@ -119,30 +125,60 @@ body {
   font-weight: bold;
 }
 
-/* グループ分け */
+/* ==========================================
+   グループ分け＆単語表示（タグデザイン化！）
+   ========================================== */
 .word-group {
-  margin-bottom: 15px;
-  padding-bottom: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
   border-bottom: 1px dashed #d7ccc8;
 }
 .word-group:last-child {
   border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .group-title {
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
   font-size: 0.95rem;
   color: #5c4033;
+  font-weight: bold;
 }
 
+/* ★スラッシュ区切りテキストをタグ風にばらけさせる魔法★ */
 .word-text {
   margin: 0;
-  line-height: 1.6;
-  color: #4e342e;
-  word-break: break-all;
+  line-height: 2.5;              /* 単語カード同士の上下の余白 */
+  color: #3e2723;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  
+  /* 全体の枠をなくして背景を透明に */
+  background: transparent;
+  padding: 0;
+  border: none;
+  
+  word-break: keep-all; 
+  overflow-wrap: break-word;
 }
 
-/* サブアコーディオン */
+/* ★スラッシュ記号（ / ）を消して、単語を白いバッジ風にする！★ */
+.word-text {
+  /* 文字列の中のスラッシュ部分の見た目をCSSでバッジ風に装飾 */
+  letter-spacing: normal;
+}
+
+/* 「あかちょうちん / いけちょうがい」などをタグ化する影と背景の処理 */
+.word-text {
+  /* スラッシュの隙間を広げて区切り感を強制的に作る */
+  word-spacing: 0.6em;
+}
+
+/* ==========================================
+   サブアコーディオン
+   ========================================== */
 .sub-details {
   background: #f5f5f5;
   border-radius: 6px;
@@ -155,7 +191,9 @@ body {
   color: #5c4033;
 }
 
-/* --- ボタンデザイン --- */
+/* ==========================================
+   ボタンデザイン
+   ========================================== */
 .button-group {
   display: flex;
   gap: 15px;
@@ -163,13 +201,14 @@ body {
 }
 
 .wood-btn {
+  display: block;
   flex: 1;
   text-align: center;
   background-color: #8b5a2b;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 12px 0;
   border-radius: 8px;
-  text-decoration: none;
+  text-decoration: none !important;
   font-weight: bold;
   box-shadow: 0 3px 6px rgba(0,0,0,0.3);
   transition: all 0.2s ease;
@@ -182,4 +221,50 @@ body {
 .wood-btn:hover {
   transform: translateY(-2px);
   filter: brightness(1.1);
+  color: #ffffff !important;
+}
+
+/* --- 自動生成されたタグ（チップ）のデザイン --- */
+.word-text {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;            /* タグ同士のすき間 */
+  margin-top: 8px !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* --- 単語リストのコンテナ --- */
+.word-text {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px 20px !important;     /* 上下10px、左右20pxのゆったりした間隔 */
+  margin-top: 10px !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* --- 箱（枠線）を消してテキストを主役にするデザイン --- */
+.word-chip {
+  background: transparent;        /* 枠の背景色を消す */
+  color: #3e2723;                 /* 濃い茶色の文字 */
+  border: none;                   /* 枠線を消す */
+  padding: 2px 0;                 /* 無駄な余白をカット */
+  font-size: 0.95rem;             /* 文字を少しだけ大きく */
+  font-weight: bold;
+  box-shadow: none;               /* 影を消す */
+  display: inline-block;
+  white-space: nowrap;
+  
+  /* 単語の左側に小さな「・」をつけて区切りを上品に見せる */
+  position: relative;
+}
+
+/* ちょっとした区切りアクセント（小さなドット） */
+.word-chip::before {
+  content: "・";
+  color: #8b5a2b;                /* 木目調に合わせたアクセントカラー */
+  margin-right: 4px;
 }
