@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゆめのゆめ1-2攻略</title>
+
+    <!-- CSSの読み込み (パスは環境に合わせて ../ か / か調整してね) -->
+    <link rel="stylesheet" href="../headStyle.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- JavaScriptでヘッダーを自動追加 -->
+    <script src="../header.js"></script>
+
+    <style>
+        /* 全体のセンタリング（中央寄せ）と枠組み */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a3b32;
+            background-color: #f7f4ee;
+            margin: 0 auto; /* 中央寄せ */
+            padding: 24px;
+            max-width: 800px; /* 横幅を制限 */
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3d2e24;
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+            border-bottom: 2px solid #d4c5b3;
+            padding-bottom: 12px;
+        }
+
+        .section-heading {
+            font-size: 1.4rem;
+            color: #7c5c43;
+            margin: 28px 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .intro-text {
+            background-color: #ffffff;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid #e6ded5;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 6px rgba(124, 92, 67, 0.04);
+        }
+
+        /* YouTube埋め込み枠 (レスポンシブ16:9) */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .quest-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e6ded5;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(124, 92, 67, 0.05);
+        }
+
+        .party-img-container, .turn-img-container {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .party-img, .turn-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #e6ded5;
+        }
+        .party-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+        .party-card-item {
+            background: #faf8f5;
+            border: 1px solid #ebdcd0;
+            border-radius: 6px;
+            padding: 12px 16px;
+        }
+        .party-card-item strong {
+            color: #7c5c43;
+            display: block;
+            margin-bottom: 6px;
+            border-bottom: 1px dashed #d4c5b3;
+            padding-bottom: 4px;
+        }
+        .party-card-item p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* 立ち回り内サブボックス */
+        .turn-title-label {
+            font-size: 1.25rem;
+            color: #7c5c43;
+            margin: 0 0 14px 0;
+            border-bottom: 2px solid #ebdcd0;
+            padding-bottom: 6px;
+        }
+        .info-sub-box {
+            background: #faf8f5;
+            border-left: 4px solid #7c5c43;
+            padding: 12px 16px;
+            margin-bottom: 12px;
+            border-radius: 0 6px 6px 0;
+        }
+        .info-sub-box.action-box {
+            border-left-color: #4b8b54;
+            background: #f7faf7;
+        }
+        .info-label {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: #5c4532;
+            margin-bottom: 6px;
+        }
+
+        /* 特殊スキル使用バッジ枠 */
+        .skill-use-box {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .skill-badge {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .badge-ex {
+            background: #fff0f0;
+            border: 1px solid #ffcdd2;
+            color: #c62828;
+        }
+        .badge-charge {
+            background: #fffde7;
+            border: 1px solid #fff59d;
+            color: #f57f17;
+        }
+        .badge-equip {
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            color: #2e7d32;
+        }
+
+        /* 盤面複数リストのスタイル */
+        .board-data-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .board-data-item {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e6ded5;
+        }
+        .board-data-item:last-child {
+            border-bottom: none;
+        }
+        .board-main-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        .board-pattern-tag {
+            background: #ebdcd0;
+            color: #4a3b32;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .rec-words-text {
+            font-size: 0.95rem;
+        }
+        .board-note-text {
+            margin-top: 6px;
+            font-size: 0.88rem;
+            color: #b71c1c;
+            background: #fff8f8;
+            border: 1px solid #ffcdd2;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* 使いたい/使いたくないキャラ表示スタイル */
+        .wave-char-status-box {
+            background: #fffdfa;
+            border: 1px solid #ebdcd0;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+        }
+        .char-status-item {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        .char-status-item:last-child {
+            margin-bottom: 0;
+        }
+        .status-use strong {
+            color: #2e7d32;
+        }
+        .status-avoid strong {
+            color: #c62828;
+        }
+
+        /* 戻るボタンエリア（2つのボタンを並べる設定） */
+        .back-area {
+            border-top: 1px dashed #d4c5b3;
+            padding-top: 24px;
+            margin-top: 32px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-back {
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            color: #4a3b32;
+            background-color: #e6ded5;
+            border: 1px solid #c8bcad;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-back:hover {
+            background-color: #d8cdbe;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー挿入場所 -->
+    <div id="header-placeholder"></div>
+
+    <h1>ゆめのゆめ1-2攻略</h1>
+
+    <!-- YouTube動画 -->
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/SX_ViT4Ra7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- 概要 -->
+    <div class="intro-text">
+        <p>ライダーパーティーでのゆめのゆめ1w1t-2w2t攻略です<br>細かい概要はyoutubeで確認ください（※後日更新予定！）<br><br>ジオウOFには、「神キラー、クリ率up」のシンコトワリ<br>SPアギトには、「神キラー、クリ率up、上限アップ（黒）」のシンコトワリをつけましょう。<br>他キャラにはエネチャコトワリを持たせて置くと良い。</p>
+    </div>
+
+    <!-- パーティー紹介 -->
+    <h2 class="section-heading">⚔️ パーティー編成・詳細</h2>
+    <div class="quest-card">
+      <div class="party-img-container"><img src="../images/yumeyume/yumeDekki.jpg" alt="パーティー編成" class="party-img"></div>
+      <div class="party-grid">
+        <div class="party-card-item"><strong>👑 リーダー</strong><p>ジオウOF</p></div>
+        <div class="party-card-item"><strong>👥 サブ</strong><p>SPアギト<br>SPクウガ<br>ツラミ、ムオン、ンヘループ（グランド）<br>「こ、う」のチェンジ（ライダー）<br>コピガ＆スマッシュ持ち闇属性（ライダー）</p></div>
+        <div class="party-card-item"><strong>🗡️ 装備</strong><p>サイキョージカンギレード（ジオウ剣）<br><br>代替案<br>ガンガンセイバー、クウガエンブレム等</p></div>
+        <div class="party-card-item"><strong>🔄 代用キャラ</strong><p>ノクスも一応適正。だが、メイン属性が水で、闇属性の「ゅ」を使えないので注意。<br>使う場合はなるべく「し」で置こう。</p></div>
+      </div>
+    </div>
+
+    <!-- 立ち回り攻略 -->
+    <h2 class="section-heading">📜 立ち回り・ターン攻略</h2>
+    <div class="quest-card">
+      <h3 class="turn-title-label">⏱️ Wave 1 - 1ターン目</h3>
+      <div class="turn-img-container"><img src="../images/yumeyume/yume1w1tsin.jpg" alt="Wave 1 - 1ターン目の画像" class="turn-img"></div>
+      <div class="skill-use-box">
+        <div class="skill-badge badge-ex">🔥 <strong>EXスキル使用</strong>：ツラミEX（再行動）</div>
+        <div class="skill-badge badge-equip">🗡️ <strong>装備使用</strong></div>
+      </div>
+      <div class="info-sub-box">
+        <div class="info-label">🧩 盤面パターン ＆ 推奨作成文字</div>
+        <ul class="board-data-list">
+        <li class="board-data-item">
+          <div class="board-main-line">
+            <span class="board-pattern-tag">盤面: 〇〇し〇う〇</span>
+            <span class="rec-words-text">👉 推奨: <strong>こうしゅうし</strong></span>
+          </div>
+        </li>
+        <li class="board-data-item">
+          <div class="board-main-line">
+            <span class="board-pattern-tag">盤面: 〇〇き〇う〇</span>
+            <span class="rec-words-text">👉 推奨: <strong>こうきゅうし</strong></span>
+          </div>
+        </li>
+        <li class="board-data-item">
+          <div class="board-main-line">
+            <span class="board-pattern-tag">盤面: 〇〇り〇う〇</span>
+            <span class="rec-words-text">👉 推奨: <strong>こうりゅうし</strong></span>
+          </div>
+        </li>
+        <li class="board-data-item">
+          <div class="board-main-line">
+            <span class="board-pattern-tag">盤面: 〇〇ち〇う〇</span>
+            <span class="rec-words-text">👉 推奨: <strong>（こ）うちゅうし</strong></span>
+          </div>
+          <div class="board-note-text">⚠️ <strong>注意点:</strong> 別に「こ」じゃなくてもOK</div>
+        </li>
+        <li class="board-data-item">
+          <div class="board-main-line">
+            <span class="board-pattern-tag">盤面: 〇〇じ〇う〇</span>
+            <span class="rec-words-text">👉 推奨: <strong>こうじゅうじ</strong></span>
+          </div>
+          <div class="board-note-text">⚠️ <strong>注意点:</strong> 右端にジオウを「じ」で入れよう もしそこがバルーンマスならリタイア検討</div>
+        </li>
+        </ul>
+      </div>
+      <div class="wave-char-status-box">
+        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> ジオウOF、「こ」のチェンジキャラ、SPクウガ</div>
+        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> 闇属性、ンへループ、SPアギト</div>
+      </div>
+      <div class="info-sub-box action-box">
+        <div class="info-label">⚔️ 立ち回り・行動方針</div>
+        <div class="info-content">まず初手に装備を使用し、ジオウに再行動をかけ、コピーマスに入れてください。<br>そして、必ずスマッシュを壊し、本体を倒してください。<br>雑魚は自爆するので無視で構いません。<br>ボムも本体を倒せば消えるので好きにキャラを置くことができます。<br>この時、なるべく闇属性やンへループを使わないのがコツです。<br>やむを得ない場合は闇属性を一体のみ使用しても大丈夫です。</div>
+      </div>
+    </div>
+
+    <div class="quest-card">
+      <h3 class="turn-title-label">⏱️ Wave 2 - 1ターン目</h3>
+      <div class="turn-img-container"><img src="../images/yumeyume/yume2w1t.jpg" alt="Wave 2 - 1ターン目の画像" class="turn-img"></div>
+      <div class="skill-use-box">
+        <div class="skill-badge badge-ex">🔥 <strong>EXスキル使用</strong>：ムオンEX（全ギミック付与＋５デバフ）</div>
+      </div>
+      <div class="info-sub-box">
+        <div class="info-label">🧩 盤面パターン ＆ 推奨作成文字</div>
+        <ul class="board-data-list">
+        <li class="board-data-item">
+          <div class="board-main-line">
+            <span class="board-pattern-tag">盤面: 〇〇◇◇〇〇う</span>
+            <span class="rec-words-text">👉 推奨: <strong>適当に作ってOK</strong></span>
+          </div>
+          <div class="board-note-text">⚠️ <strong>注意点:</strong> ボム条件闇属性二体</div>
+        </li>
+        </ul>
+      </div>
+      <div class="wave-char-status-box">
+        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> ンへループ、闇属性、ツラミ、ムオン</div>
+        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> アギトSP</div>
+      </div>
+      <div class="info-sub-box action-box">
+        <div class="info-label">⚔️ 立ち回り・行動方針</div>
+        <div class="info-content">このターンは右の雑魚を狙い、基本的に手札に居るンへループにムオンEXを使います。<br>そして、左端に「と」で置き、「とうろうしょう」みたいに文字を作ります。<br>しかし、もし手札にンへがおらず、素引きして消去がかかっていない状態なら、ムオンやツラミにムオンEXを使い、「〇うろう」のように置くと良いでしょう。手札整理です。<br>なお、ンへループを使うことによって、最悪闇属性を一体しか引けなくてもボムを解除することができます。</div>
+      </div>
+    </div>
+
+    <div class="quest-card">
+      <h3 class="turn-title-label">⏱️ Wave 2 - 2ターン目</h3>
+      <div class="turn-img-container"><img src="../images/yumeyume/yume2w2t.jpg" alt="Wave 2 - 2ターン目の画像" class="turn-img"></div>
+      <div class="skill-use-box">
+        <div class="skill-badge badge-ex">🔥 <strong>EXスキル使用</strong>：ンへループEX（全ギミック付与＋２バフ）</div>
+        <div class="skill-badge badge-charge">⚡ <strong>チャージスキル使用</strong>：ンへループ（ダメージ上限up＋クリティカル率アップ）</div>
+        <div class="skill-badge badge-equip">🗡️ <strong>装備使用</strong></div>
+      </div>
+      <div class="info-sub-box">
+        <div class="info-label">🧩 盤面パターン ＆ 推奨作成文字</div>
+        <ul class="board-data-list">
+        <li class="board-data-item">
+          <div class="board-main-line">
+            <span class="board-pattern-tag">盤面: ◇〇〇う〇ゅ〇</span>
+            <span class="rec-words-text">👉 推奨: <strong>基本適当に作ってOK</strong></span>
+          </div>
+        </li>
+        <li class="board-data-item">
+          <div class="board-main-line">
+            <span class="board-pattern-tag">盤面: ◇〇〇う〇ょ〇</span>
+            <span class="rec-words-text">👉 推奨: <strong>基本適当に作ってOK</strong></span>
+          </div>
+          <div class="board-note-text">⚠️ <strong>注意点:</strong> 「こうしょし」を作ることも可能。</div>
+        </li>
+        </ul>
+      </div>
+      <div class="wave-char-status-box">
+        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> アギトSP</div>
+        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> ライダーキャラ以外（火力が足らない事になる）</div>
+      </div>
+      <div class="info-sub-box action-box">
+        <div class="info-label">⚔️ 立ち回り・行動方針</div>
+        <div class="info-content">まず、ターンが始まると同時に、装備、チャージスキルを使用していきましょう。<br>次の行動は盤面によって変わります。<br><br>チェンジ チェンジ コピー バルーン の場合<br>アギトにンへのEXスキルを使用し、コピーマスに「し」で置きましょう。<br><br>チェンジ チェンジ バルーン コピー の場合<br>クウガ、ビルド、ガヴといった、「う」を持ってるキャラにEXを使い、コピーマスに「う」で置きましょう。<br><br>あとは適当に文字を作れば大丈夫です。<br>例えば、「ろうこうしょう」のように置いても大丈夫ですし、左端を無視して「しょうしょう」のように置いても大丈夫。<br>ンへループが消去にかかってないなら、ンへを「と」で置いて、「とこうし」を作ってもいいです。</div>
+      </div>
+    </div>
+
+    <!-- 締め -->
+    <div class="intro-text">
+        <p>アギトが物凄い火力でサクサク倒してくれます！<br>思ったより火力が出ない場合は、お守り、コトワリ等を見直すといいかもしれません！<br><br>以上です！頑張ってください！</p>
+    </div>
+
+    <!-- 戻るボタンエリア -->
+    <div class="back-area">
+        <a href="../index.html" class="btn-back">← トップへ戻る</a>
+        <a href="../kourin.html" class="btn-back">⚔️ 降臨選択画面へ戻る</a>
+    </div>
+
+</body>
+</html>

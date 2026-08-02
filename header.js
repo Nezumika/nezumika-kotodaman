@@ -1,5 +1,9 @@
 // header.js (丸ごと差し替え)
 document.addEventListener("DOMContentLoaded", () => {
+  // 現在のページの階層状況（/kourin/ などサブフォルダ内にあるか）を判定してパスの頭（basePath）を決める
+  const isSubFolder = window.location.pathname.includes('/kourin/');
+  const basePath = isSubFolder ? '../' : './';
+
   const headerHTML = `
     <header class="site-header">
       <!-- 💡 三本線（ハンバーガー）ボタン -->
@@ -15,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- 💡 左から出てくるメニュー本体 -->
     <nav class="side-nav" id="side-nav">
       <ul>
-        <li><a href="index.html">トップ</a></li>
-        <li><a href="yokuarubanmen.html">よくある盤面</a></li>
-        <li><a href="kourin.html">降臨</a></li>
+        <li><a href="${basePath}index.html">トップ</a></li>
+        <li><a href="${basePath}yokuarubanmen.html">よくある盤面</a></li>
+        <li><a href="${basePath}kourin.html">降臨</a></li>
       </ul>
     </nav>
     <!-- 💡 メニューが開いている時の背景の暗幕 -->
