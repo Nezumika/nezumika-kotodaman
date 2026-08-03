@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ゆめのゆめ1-2攻略</title>
-
-    <!-- CSSの読み込み (パスは環境に合わせて ../ か / か調整してね) -->
-    <link rel="stylesheet" href="../headStyle.css">
-    <link rel="stylesheet" href="../style.css">
-
-    <!-- JavaScriptでヘッダーを自動追加 -->
-    <script src="../header.js"></script>
+    <link rel="stylesheet" href="headStyle.css">
+    <script src="header.js"></script>
 
     <style>
-        /* 全体のセンタリング（中央寄せ）と枠組み */
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
             font-size: 16px;
             line-height: 1.7;
             color: #4a3b32;
             background-color: #f7f4ee;
-            margin: 0 auto; /* 中央寄せ */
+            margin: 0;
             padding: 24px;
-            max-width: 800px; /* 横幅を制限 */
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         h1 {
@@ -53,7 +49,6 @@
             box-shadow: 0 2px 6px rgba(124, 92, 67, 0.04);
         }
 
-        /* YouTube埋め込み枠 (レスポンシブ16:9) */
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -101,9 +96,6 @@
             border-radius: 6px;
             padding: 12px 16px;
         }
-        .party-card-item.full-width {
-            grid-column: 1 / -1;
-        }
         .party-card-item strong {
             color: #7c5c43;
             display: block;
@@ -116,7 +108,14 @@
             font-size: 0.95rem;
         }
 
-        /* 立ち回り内サブボックス */
+        .party-detail-box {
+            background: #faf8f5;
+            border-left: 4px solid #7c5c43;
+            padding: 12px 16px;
+            margin-top: 14px;
+            border-radius: 0 6px 6px 0;
+        }
+
         .turn-title-label {
             font-size: 1.25rem;
             color: #7c5c43;
@@ -142,7 +141,6 @@
             margin-bottom: 6px;
         }
 
-        /* 特殊スキル使用バッジ枠 */
         .skill-use-box {
             display: flex;
             flex-direction: column;
@@ -171,7 +169,6 @@
             color: #2e7d32;
         }
 
-        /* 盤面複数リストのスタイル */
         .board-data-list {
             list-style: none;
             padding: 0;
@@ -211,7 +208,6 @@
             border-radius: 4px;
         }
 
-        /* 使いたい/使いたくないキャラ表示スタイル */
         .wave-char-status-box {
             background: #fffdfa;
             border: 1px solid #ebdcd0;
@@ -233,14 +229,10 @@
             color: #c62828;
         }
 
-        /* 戻るボタンエリア（2つのボタンを並べる設定） */
         .back-area {
             border-top: 1px dashed #d4c5b3;
             padding-top: 24px;
             margin-top: 32px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
         }
         .btn-back {
             font-family: inherit;
@@ -253,8 +245,6 @@
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
         }
         .btn-back:hover {
             background-color: #d8cdbe;
@@ -264,11 +254,11 @@
 </head>
 <body>
 
-    <!-- ヘッダー挿入場所 -->
     <div id="header-placeholder"></div>
 
     <h1>ゆめのゆめ1-2攻略</h1>
 
+    
     <!-- YouTube動画 -->
     <div class="video-container">
         <iframe src="https://www.youtube.com/embed/Imq8AjvGHiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -276,7 +266,7 @@
 
     <!-- 概要 -->
     <div class="intro-text">
-        <p>ライダーパーティーでのゆめのゆめ1w1t-2w2t攻略です<br>細かい概要はyoutubeで確認ください（※後日更新予定！）</p>
+        <p>ライダーパーティーでのゆめのゆめ1-2攻略です<br>動いている様子はyoutubeで確認ください（※後日更新予定！）</p>
     </div>
 
     <!-- パーティー紹介 -->
@@ -285,10 +275,13 @@
       <div class="party-img-container"><img src="../images/yumeyume/yumeDekki.jpg" alt="パーティー編成" class="party-img"></div>
       <div class="party-grid">
         <div class="party-card-item"><strong>👑 リーダー</strong><p>ジオウOF</p></div>
-        <div class="party-card-item"><strong>👥 サブメンバー</strong><p>SPアギト<br>SPクウガ<br>ツラミ、ムオン、ンヘループ（グランド）<br>「こ、う」のチェンジ（ライダー）<br>コピガ＆スマッシュ持ち闇属性（ライダー）</p></div>
-        <div class="party-card-item"><strong>🗡️ 装備</strong><p>サイキョージカンギレード（ジオウ剣）<br><br>代替案<br>ガンガンセイバー、クウガエンブレム等</p></div>
-        <div class="party-card-item"><strong>🔄 代用可能キャラ等</strong><p>ノクスも一応適正。だが、メイン属性が水で、闇属性の「ゅ」を使えないので注意。<br>使う場合はなるべく「し」で置こう。</p></div>
-        <div class="party-card-item full-width"><strong>📝 パーティー詳細（補足・全体方針・注意点など）</strong><p>ジオウOFには、「神キラー、クリ率up」のシンコトワリ<br>SPアギトには、「神キラー、クリ率up、上限アップ（黒）」のシンコトワリをつけましょう。<br>他キャラにはエネチャコトワリを持たせて置くと良い。</p></div>
+        <div class="party-card-item"><strong>👥 サブ</strong><p>SPアギト<br>SPクウガ<br>ツラミ、ムオン、ンヘループ（グランド）<br>「こ、う」のチェンジ（ライダー）<br>コピガ＆スマッシュ持ち闇属性（ライダー）</p></div>
+        <div class="party-card-item"><strong>🗡️ 装備</strong><p>・個人的にオススメ<br>サイキョージカンギレード（ジオウ剣）<br>クリティカルいっぱい出て楽しい。<br><br>・安定性<br>ガンガンセイバー<br>バフデバフあるので1w1tが突破しやすいかも。<br><br>・代替案<br>クウガエンブレム<br>キングラウザー　等</p></div>
+        <div class="party-card-item"><strong>🔄 代用キャラ</strong><p>ノクスも一応適正。だが、メイン属性が水で、闇属性の「ゅ」を使えないので注意。<br>使う場合は「し」で置こう。</p></div>
+      </div>
+      <div class="party-detail-box">
+        <div class="info-label">📝 パーティー詳細・補足</div>
+        <div class="info-content">ジオウ、アギトには神30%コトワリ、クリティカル率アップコトワリ、上限アップ（黒コトワリ）をつけましょう。<br>他のキャラはエネルギーチャージコトワリを持たせておいてください。</div>
       </div>
     </div>
 
@@ -325,9 +318,8 @@
         <li class="board-data-item">
           <div class="board-main-line">
             <span class="board-pattern-tag">盤面: 〇〇ち〇う〇</span>
-            <span class="rec-words-text">👉 推奨: <strong>（こ）うちゅうし</strong></span>
+            <span class="rec-words-text">👉 推奨: <strong>こうちゅうし</strong></span>
           </div>
-          <div class="board-note-text">⚠️ <strong>注意点:</strong> 別に「こ」じゃなくてもOK</div>
         </li>
         <li class="board-data-item">
           <div class="board-main-line">
@@ -339,12 +331,12 @@
         </ul>
       </div>
       <div class="wave-char-status-box">
-        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> ジオウOF、「こ」のチェンジキャラ、SPクウガ</div>
-        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> 闇属性、ンへループ、SPアギト</div>
+        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> ジオウOF、「こ」のチェンジキャラ</div>
+        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> 闇属性、ンへループ、SPアギト、SPクウガ</div>
       </div>
       <div class="info-sub-box action-box">
         <div class="info-label">⚔️ 立ち回り・行動方針</div>
-        <div class="info-content">まず初手に装備を使用し、ジオウに再行動をかけ、コピーマスに入れてください。<br>そして、必ずスマッシュを壊し、本体を倒してください。<br>雑魚は自爆するので無視で構いません。<br>ボムも本体を倒せば消えるので好きにキャラを置くことができます。<br>この時、なるべく闇属性やンへループを使わないのがコツです。<br>やむを得ない場合は闇属性を一体のみ使用しても大丈夫です。</div>
+        <div class="info-content">まず初手に装備を使用し、ジオウに再行動をかけ、コピーマスに入れてください。<br>そして、必ずスマッシュを壊し、本体を倒してください。<br>雑魚は自爆するので無視で構いません。<br>ボムも本体を倒せば消えるので好きにキャラを置くことができます。<br><br>コツ<br>・闇属性は使わない。最悪使ってもいいけど一体まで。<br>・ンへループは使わない。闇属性を使わないなら最悪使ってOK。<br>・アギト、クウガは温存推奨。特にアギト。<br><br>手札がしょぼいときはリタイアしてください。</div>
       </div>
     </div>
 
@@ -367,12 +359,12 @@
         </ul>
       </div>
       <div class="wave-char-status-box">
-        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> ンへループ、闇属性、ツラミ、ムオン</div>
-        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> アギトSP</div>
+        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> 闇属性、ツラミ、ムオン</div>
+        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> SPアギト、SPクウガ</div>
       </div>
       <div class="info-sub-box action-box">
         <div class="info-label">⚔️ 立ち回り・行動方針</div>
-        <div class="info-content">このターンは右の雑魚を狙い、基本的に手札に居るンへループにムオンEXを使います。<br>そして、左端に「と」で置き、「とうろうしょう」みたいに文字を作ります。<br>しかし、もし手札にンへがおらず、素引きして消去がかかっていない状態なら、ムオンやツラミにムオンEXを使い、「〇うろう」のように置くと良いでしょう。手札整理です。<br>なお、ンへループを使うことによって、最悪闇属性を一体しか引けなくてもボムを解除することができます。</div>
+        <div class="info-content">このターンは３つのパターンがあります。<br>数字が低いものから優先度が高いです。<br><br>１　手札に闇属性が二体いる場合<br>その二体を使って右で「しゅう」を作ってください。<br>そして、ツラミかムオン（できればツラミ）にEXスキルを使用し、「う」で置いて、<br>「こうろうしゅう」みたいな文字を作ってください。<br><br>２　手札に闇属性が一体しかいない・手札にンへループが居ない場合<br>まず右にその闇属性を置きましょう。（「し」か「ゅ」）<br>⚠️注意：闇属性はコピーマスに入れること。<br>次に、闇属性を引けた場合は、１の手順に戻ってください。<br>もしンへループを引けた場合は、右端に「と」で置いてください。<br>ンへループは虹属性なので、最悪この番闇属性を一体しか使えなくてもボム解除できます。<br>そして１の手順に戻ってください。<br><br>３　闇属性を一体しか引けなかった場合<br>ツラミ・ムオンにEXスキルを使うことを諦めて、ンへループにEXスキルを使い、<br>左端に「と」で置きましょう。<br>ンへループは虹属性なので、最悪この番闇属性を一体しか使えなくてもボム解除できます。<br>あとは適当に文字作れば大丈夫です。<br>⚠️注意：闇属性はコピーマスに入れること。<br><br>Q　なんでツラミかムオンをこの番使いたいの？<br>A　手札整理です。手札になるべく多くのライダーキャラを残した方が2-2の突破率が上がります。ツラミを使いたい理由は、手札バフがあるからです。<br><br>Q　なんでンへループ使うの渋るの？<br>A　2-2の切り札です。もし何も良いキャラを引けなかったときに、チェンジマスに突っ込むギャンブルをすれば、2-2もなんとかなるからです。多分。</div>
       </div>
     </div>
 
@@ -403,24 +395,27 @@
         </ul>
       </div>
       <div class="wave-char-status-box">
-        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> アギトSP</div>
-        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> ライダーキャラ以外（火力が足らない事になる）</div>
+        <div class="char-status-item status-use"><strong>⭕ 使いたいキャラ（使用推奨）:</strong> SPアギト、SPクウガ</div>
+        <div class="char-status-item status-avoid"><strong>❌ 使いたくないキャラ（温存）:</strong> ツラミ、ムオン</div>
       </div>
       <div class="info-sub-box action-box">
         <div class="info-label">⚔️ 立ち回り・行動方針</div>
-        <div class="info-content">まず、ターンが始まると同時に、装備、チャージスキルを使用していきましょう。<br>次の行動は盤面によって変わります。<br><br>チェンジ チェンジ コピー バルーン の場合<br>アギトにンへのEXスキルを使用し、コピーマスに「し」で置きましょう。<br><br>チェンジ チェンジ バルーン コピー の場合<br>クウガ、ビルド、ガヴといった、「う」を持ってるキャラにEXを使い、コピーマスに「う」で置きましょう。<br><br>あとは適当に文字を作れば大丈夫です。<br>例えば、「ろうこうしょう」のように置いても大丈夫ですし、左端を無視して「しょうしょう」のように置いても大丈夫。<br>ンへループが消去にかかってないなら、ンへを「と」で置いて、「とこうし」を作ってもいいです。</div>
+        <div class="info-content">まず、ターンが始まると同時に、装備、チャージスキルを使用していきましょう。<br>次の行動は盤面によって変わります。<br><br>・チェンジ チェンジ コピー バルーン の場合<br>アギトにンへのEXスキルを使用し、コピーマスに「し」で置きましょう。<br><br>・チェンジ チェンジ バルーン コピー の場合<br>クウガ、ビルド、ガヴといった、「う」を持ってるキャラにEXを使い、コピーマスに「う」で置きましょう。<br>できればバフ盛れるクウガがいいな。<br><br>あとは適当に文字を作れば大丈夫です。<br>例えば、「ろうこうしょう」のように置いても大丈夫ですし、左端を無視して「しょうしょう」のように置いても大丈夫。<br>火力が足りなさそうだったら、ンへループに消去がかかっていても、適当にチェンジマスに突っ込めば大丈夫。多分なんとかなります。<br><br>⚠️注意：この番にツラミやムオンを使用すると体感100%火力が足りません！ご注意ください！</div>
       </div>
     </div>
 
+
+    
     <!-- 締め -->
     <div class="intro-text">
-        <p>アギトが物凄い火力でサクサク倒してくれます！<br>思ったより火力が出ない場合は、お守り、コトワリ等を見直すといいかもしれません！<br><br>以上です！頑張ってください！</p>
+        <p>アギトが物凄い火力でサクサク倒してくれます！<br>残り10%で倒してくれるのもありがたい！<br><br>思ったより火力が出ない場合は、お守り、コトワリ等を見直すといいかもしれません！<br><br>以上です！<br>参考にしてくれれば幸いです！</p>
     </div>
 
-    <!-- 戻るボタンエリア -->
+    <!-- トップへ戻る -->
     <div class="back-area">
-        <a href="../index.html" class="btn-back">← トップへ戻る</a>
-        <a href="../kourin.html" class="btn-back">⚔️ 降臨選択画面へ戻る</a>
+        <a href="index.html">
+            <button type="button" class="btn-back">← トップへ戻る</button>
+        </a>
     </div>
 
 </body>
